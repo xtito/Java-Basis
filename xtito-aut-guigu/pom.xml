@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>xtito-project</artifactId>
+        <groupId>com.xtito</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+
+    <!-- 当前pom模型的版本 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 定义实际项目中的一个模块 也就是项目名 -->
+    <artifactId>xtito-aut-guigu</artifactId>
+
+    <!-- 项目名 -->
+    <name>xtito-aut-guigu</name>
+
+    <!-- 定义该项目的打包方式 -->
+    <packaging>jar</packaging>
+
+    <description>这是尚学堂课程源码</description>
+
+</project>
