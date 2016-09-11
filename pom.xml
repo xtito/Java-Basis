@@ -107,9 +107,33 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>ooxml-schemas</artifactId>
+                <version>1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.apache.xmlbeans</groupId>
                 <artifactId>xmlbeans</artifactId>
                 <version>${xmlbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -275,7 +299,11 @@
         <jstl.version>1.2</jstl.version>
 
         <tomcat.juli.version>6.0.45</tomcat.juli.version>
-        <poi.version>3.9</poi.version>
+        <poi.version>3.14</poi.version>
         <xmlbeans.version>2.6.0</xmlbeans.version>
+
+        <spring.version>4.3.2.RELEASE</spring.version>
+
+        <freemarker.version>2.3.23</freemarker.version>
     </properties>
 </project>
