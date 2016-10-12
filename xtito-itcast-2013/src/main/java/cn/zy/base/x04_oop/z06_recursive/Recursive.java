@@ -3,6 +3,7 @@ package cn.zy.base.x04_oop.z06_recursive;
 import java.util.Scanner;
 
 /**
+ * 递归
  * Created by [Zy]
  * 2016/3/1 22:44
  */

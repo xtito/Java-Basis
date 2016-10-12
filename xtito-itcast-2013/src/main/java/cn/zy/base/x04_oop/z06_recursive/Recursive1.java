@@ -1,6 +1,7 @@
 package cn.zy.base.x04_oop.z06_recursive;
 
 /**
+ * 递归
  * Created by [Zy]
  * 2016/3/1 22:44
  */
@@ -11,10 +12,11 @@ public class Recursive1 {
     }
 
     public static int f(int n) {
-        if (1 == n)
+        if (1 == n) {
             return 1;
-        else
+        } else {
             return n * f(n - 1);
+        }
     }
 
 }
