@@ -29,6 +29,7 @@
         <module>xtito-itcast-2013</module>
         <module>xtito-util</module>
         <module>xtito-design-patterns</module>
+        <module>xtito-html5</module>
     </modules>
 
     <!-- jar 包管理 -->

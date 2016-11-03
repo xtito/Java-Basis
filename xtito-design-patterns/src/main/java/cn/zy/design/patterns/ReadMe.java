@@ -31,4 +31,17 @@ public class ReadMe {
     x23_亨元模式【flyweight pattern】
     x24_备忘录模式【memento pattern】
      */
+
+    public static void main(String[] args) {
+        int[] a = {10,20,30,60};
+        System.out.println(a(a, 4));
+    }
+
+    public static int a(int[] a, int n) {
+        if (n > 0) {
+            return a[n] + a(a, n-1);
+        } else {
+            return a[n];
+        }
+    }
 }
