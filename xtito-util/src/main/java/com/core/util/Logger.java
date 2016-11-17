@@ -1,6 +1,8 @@
 package com.core.util;
 
 
+import org.slf4j.LoggerFactory;
+
 public class Logger {
 	
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(Logger.class);
