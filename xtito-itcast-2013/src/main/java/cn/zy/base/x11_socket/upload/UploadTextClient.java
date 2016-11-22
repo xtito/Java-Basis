@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 
 /**
  * TCP 文本文件上传客户端
- *
+ * <p/>
  * Created by [Zy]
  * 2016/11/18 16:18
  */
@@ -25,11 +25,11 @@ public class UploadTextClient {
             BufferedReader bufr = new BufferedReader(new FileReader("F:/test/javaList.text"));
 
             // 3，目的：网络，socket输出流。将录入的数据发送到服务端。
-            PrintWriter out = new PrintWriter(s.getOutputStream(),true);
+            PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
             // 4，频繁的读写操作。
             String line = null;
-            while((line=bufr.readLine())!=null){
+            while ((line = bufr.readLine()) != null) {
 
                 out.println(line);
 

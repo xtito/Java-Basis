@@ -70,6 +70,7 @@ class UploadPic implements Runnable {
             int len = 0;
             while ((len = bis.read(buf)) != -1) {
                 bos.write(buf, 0, len);
+                bos.flush();
             }
 
             // 给客户端一个回馈信息。
