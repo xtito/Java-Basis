@@ -1,6 +1,7 @@
 package cn.zy.base.x04_oop.z05_single;
 
 /**
+ * 单例模式-懒汉式（线程安全）
  * Created by [Zy]
  * 2016/3/1 22:43
  */
