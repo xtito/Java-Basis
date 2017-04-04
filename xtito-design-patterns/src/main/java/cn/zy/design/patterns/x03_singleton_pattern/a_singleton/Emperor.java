@@ -6,6 +6,7 @@ package cn.zy.design.patterns.x03_singleton_pattern.a_singleton;
  * 中国的历史上一般都是一个朝代一个皇帝，有两个皇帝的话，必然要PK出一个皇帝出来
  * 2016/10/4 19:57
  */
+
 public class Emperor {
 
     // 定义一个皇帝放在那里，然后给这个皇帝名字
