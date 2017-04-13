@@ -8,8 +8,10 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 900, 600 )
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			"title": "批量修改文件名"
+			"visible": true
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-				"$columnSpecs": "16.0, 168.0, 10.0, 586.0, 60.0, 28.0, 16.0"
+				"$columnSpecs": "16.0, 168.0, 10.0, 566.0, 10.0, 70.0, 28.0, 16.0"
 				"$rowSpecs": "16.0, center:pref, 10.0, 132.0, 6.0, 317.0, 16.0"
 			} ) {
 				name: "mainPanel"
@@ -30,9 +32,10 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
 					name: "pathField"
-					"preferredSize": new java.awt.Dimension( 180, 30 )
-					"minimumSize": new java.awt.Dimension( 180, 30 )
+					"preferredSize": new java.awt.Dimension( 180, 34 )
+					"minimumSize": new java.awt.Dimension( 180, 34 )
 					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "pathFieldKeyPressed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 					"gridX": 3
 					"gridY": 1
@@ -46,8 +49,9 @@ new FormModel {
 					"horizontalTextPosition": 2
 					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
 					"background": new java.awt.Color( 246, 246, 246, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "pathButMouseClicked", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
-					"gridX": 4
+					"gridX": 5
 					"gridY": 1
 				} )
 				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -68,7 +72,7 @@ new FormModel {
 						"background": new java.awt.Color( 246, 246, 246, 255 )
 						"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$columnSpecs": "16.0, pref, pref, 70.0, pref"
 							"$rowSpecs": "10.0, pref, pref, 10.0"
 							"hGap": 5
 							"vGap": 5
@@ -101,6 +105,7 @@ new FormModel {
 								"text": "预览"
 								"font": &Font2 new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
 								"background": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "addViewButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridX": 3
 								"gridY": 1
@@ -130,6 +135,7 @@ new FormModel {
 								"text": "执行"
 								"font": #Font2
 								"background": #Color1
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "addButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridY": 2
 								"gridX": 3
@@ -138,7 +144,7 @@ new FormModel {
 							"title": "添加"
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-							"$columnSpecs": "16.0, 90.0, 70.0, 10.0, pref, 10.0, pref, 70.0, 60.0, 60.0, pref"
+							"$columnSpecs": "16.0, 90.0, 70.0, 10.0, pref, 10.0, pref, 70.0, 70.0, 70.0, pref"
 							"$rowSpecs": "30.0, pref, 30.0"
 							"hGap": 5
 							"vGap": 5
@@ -197,6 +203,7 @@ new FormModel {
 								"text": "预览"
 								"font": #Font2
 								"background": #Color1
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "numViewBut1MouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridX": 8
 								"gridY": 1
@@ -206,6 +213,7 @@ new FormModel {
 								"text": "执行"
 								"font": #Font2
 								"background": #Color1
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "numViewBut2MouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridY": 1
 								"gridX": 9
@@ -214,7 +222,7 @@ new FormModel {
 							"title": "序号"
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$columnSpecs": "16.0, pref, pref, 70.0, pref"
 							"$rowSpecs": "10.0, pref, pref, 10.0"
 							"hGap": 5
 							"vGap": 5
@@ -247,6 +255,7 @@ new FormModel {
 								"text": "预览"
 								"font": #Font2
 								"background": #Color1
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "replaceViewButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridX": 3
 								"gridY": 1
@@ -276,6 +285,7 @@ new FormModel {
 								"text": "执行"
 								"font": #Font2
 								"background": #Color1
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "replaceButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridY": 2
 								"gridX": 3
@@ -284,7 +294,7 @@ new FormModel {
 							"title": "替换"
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$columnSpecs": "16.0, pref, pref, 70.0, pref"
 							"$rowSpecs": "30.0, pref, 30.0"
 							"hGap": 5
 							"vGap": 5
@@ -318,6 +328,7 @@ new FormModel {
 								"font": #Font2
 								"background": #Color1
 								"actionCommand": "执行"
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "removeButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridX": 3
 								"gridY": 1
@@ -326,7 +337,7 @@ new FormModel {
 							"title": "删除"
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
-							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$columnSpecs": "16.0, pref, pref, 70.0, pref"
 							"$rowSpecs": "30.0, pref, 30.0"
 							"hGap": 5
 							"vGap": 5
@@ -360,6 +371,7 @@ new FormModel {
 								"font": #Font2
 								"background": #Color1
 								"actionCommand": "执行"
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "renameButMouseClicked", true ) )
 							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 								"gridX": 3
 								"gridY": 1
@@ -371,21 +383,24 @@ new FormModel {
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 					"gridX": 3
 					"gridY": 3
-					"gridWidth": 3
+					"gridWidth": 4
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
 					name: "listPanel"
 					"background": new java.awt.Color( 255, 255, 255, 255 )
-					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-						name: "scrollPane1"
-						add( new FormComponent( "javax.swing.JTable" ) {
-							name: "table1"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+						name: "panel1"
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPane1"
+							add( new FormComponent( "javax.swing.JTable" ) {
+								name: "table1"
+							} )
 						} )
 					} )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
 					"gridX": 3
 					"gridY": 5
-					"gridWidth": 3
+					"gridWidth": 4
 				} )
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
@@ -407,6 +422,7 @@ new FormModel {
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "outMenu"
 						"text": "退出"
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mousePressed", "outMenuMousePressed", true ) )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {

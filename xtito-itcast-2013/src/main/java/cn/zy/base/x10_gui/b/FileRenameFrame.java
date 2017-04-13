@@ -4,6 +4,7 @@
 
 package cn.zy.base.x10_gui.b;
 
+import java.awt.event.*;
 import com.intellij.uiDesigner.core.*;
 import com.jgoodies.forms.layout.*;
 import info.clearthought.layout.TableLayout;
@@ -16,8 +17,165 @@ import java.awt.*;
  * @author ZhangYuan
  */
 public class FileRenameFrame extends JFrame {
+
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JMenuBar menuBar;
+    private JMenu fileMenu;
+    private JMenuItem openMenu;
+    private JMenuItem outMenu;
+    private JMenu otherMenu;
+    private JPanel mainPanel;
+    private JLabel pathLab;
+    private JTextField pathField;
+    private JButton pathBut;
+    private JScrollPane pathScrollPane;
+    private JTree pathTree;
+    private JPanel conPanel;
+    private JTabbedPane conTabbedPane;
+    private JPanel addPanel;
+    private JLabel addLabel1;
+    private JTextField addTextField1;
+    private JButton addViewBut;
+    private JLabel addLabel2;
+    private JTextField addTextField2;
+    private JButton addBut;
+    private JPanel numPanel2;
+    private JLabel numLabel;
+    private JTextField numTextField1;
+    private JRadioButton autoRadio1;
+    private JRadioButton autoRadio2;
+    private JTextField numTextField2;
+    private JButton numViewBut1;
+    private JButton numViewBut2;
+    private JPanel replacePanel;
+    private JLabel replaceLabel1;
+    private JTextField replaceTextField1;
+    private JButton replaceViewBut;
+    private JLabel replaceLabel2;
+    private JTextField replaceTextField2;
+    private JButton replaceBut;
+    private JPanel removePanel;
+    private JLabel delLabel;
+    private JTextField delTextField;
+    private JButton removeBut;
+    private JPanel rnamePanel;
+    private JLabel reLabel;
+    private JTextField reTextField;
+    private JButton renameBut;
+    private JPanel listPanel;
+    private JPanel panel1;
+    private JScrollPane scrollPane1;
+    private JTable table1;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
+
     public FileRenameFrame() {
         initComponents();
+    }
+
+    private void pathFieldKeyPressed(KeyEvent e) {
+        // 判断是否是回车键
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println(pathField.getText());
+        }
+    }
+
+    /**
+     * 窗口关闭事件
+     */
+    private void thisWindowClosing(WindowEvent e) {
+        System.exit(0);
+    }
+
+    /**
+     * 点击转到按钮触发
+     */
+    private void pathButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+
+    /**
+     * 点击添加中的预览触发
+     */
+    private void addViewButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击添加中的执行触发
+     */
+    private void addButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击序号中的预览触发
+     */
+    private void numViewBut1MouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击序号中的执行触发
+     */
+    private void numViewBut2MouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击替换中的预览触发
+     */
+    private void replaceViewButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击替换中的执行触发
+     */
+    private void replaceButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击删除中的执行触发
+     */
+    private void removeButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+
+    /**
+     * 点击重命名中的执行触发
+     */
+    private void renameButMouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.out.println("鼠标单击开始...");
+        }
+    }
+
+    /**
+     * 点击文件菜单中的退出执行触发
+     */
+    private void outMenuMousePressed(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            System.exit(0);// 关闭程序
+        }
     }
 
     private void initComponents() {
@@ -66,6 +224,7 @@ public class FileRenameFrame extends JFrame {
         reTextField = new JTextField();
         renameBut = new JButton();
         listPanel = new JPanel();
+        panel1 = new JPanel();
         scrollPane1 = new JScrollPane();
         table1 = new JTable();
 
@@ -73,6 +232,13 @@ public class FileRenameFrame extends JFrame {
         setMinimumSize(new Dimension(900, 600));
         setBackground(Color.white);
         setTitle("\u6279\u91cf\u4fee\u6539\u6587\u4ef6\u540d");
+        setVisible(true);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                thisWindowClosing(e);
+            }
+        });
         Container contentPane = getContentPane();
         contentPane.setLayout(new GridLayout());
 
@@ -94,6 +260,12 @@ public class FileRenameFrame extends JFrame {
 
                 //---- outMenu ----
                 outMenu.setText("\u9000\u51fa");
+                outMenu.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        outMenuMousePressed(e);
+                    }
+                });
                 fileMenu.add(outMenu);
             }
             menuBar.add(fileMenu);
@@ -111,7 +283,7 @@ public class FileRenameFrame extends JFrame {
             mainPanel.setMinimumSize(new Dimension(884, 531));
             mainPanel.setBackground(new Color(246, 246, 246));
             mainPanel.setLayout(new TableLayout(new double[][] {
-                {16, 168, 10, 586, 60, 28, 16},
+                {16, 168, 10, 566, 10, 70, 28, 16},
                 {16, TableLayout.PREFERRED, 10, 132, 6, 317, 16}}));
 
             //---- pathLab ----
@@ -124,9 +296,15 @@ public class FileRenameFrame extends JFrame {
             mainPanel.add(pathLab, new TableLayoutConstraints(1, 1, 2, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.CENTER));
 
             //---- pathField ----
-            pathField.setPreferredSize(new Dimension(180, 30));
-            pathField.setMinimumSize(new Dimension(180, 30));
+            pathField.setPreferredSize(new Dimension(180, 34));
+            pathField.setMinimumSize(new Dimension(180, 34));
             pathField.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
+            pathField.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    pathFieldKeyPressed(e);
+                }
+            });
             mainPanel.add(pathField, new TableLayoutConstraints(3, 1, 3, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.CENTER));
 
             //---- pathBut ----
@@ -137,7 +315,13 @@ public class FileRenameFrame extends JFrame {
             pathBut.setHorizontalTextPosition(SwingConstants.LEFT);
             pathBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
             pathBut.setBackground(new Color(246, 246, 246));
-            mainPanel.add(pathBut, new TableLayoutConstraints(4, 1, 4, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.CENTER));
+            pathBut.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    pathButMouseClicked(e);
+                }
+            });
+            mainPanel.add(pathBut, new TableLayoutConstraints(5, 1, 5, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.CENTER));
 
             //======== pathScrollPane ========
             {
@@ -160,7 +344,7 @@ public class FileRenameFrame extends JFrame {
                         addPanel.setBackground(Color.white);
                         addPanel.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         addPanel.setLayout(new TableLayout(new double[][] {
-                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 60, TableLayout.PREFERRED},
+                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 70, TableLayout.PREFERRED},
                             {10, TableLayout.PREFERRED, TableLayout.PREFERRED, 10}}));
                         ((TableLayout)addPanel.getLayout()).setHGap(5);
                         ((TableLayout)addPanel.getLayout()).setVGap(5);
@@ -183,6 +367,12 @@ public class FileRenameFrame extends JFrame {
                         addViewBut.setText("\u9884\u89c8");
                         addViewBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         addViewBut.setBackground(Color.white);
+                        addViewBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                addViewButMouseClicked(e);
+                            }
+                        });
                         addPanel.add(addViewBut, new TableLayoutConstraints(3, 1, 3, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
 
                         //---- addLabel2 ----
@@ -203,6 +393,12 @@ public class FileRenameFrame extends JFrame {
                         addBut.setText("\u6267\u884c");
                         addBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         addBut.setBackground(Color.white);
+                        addBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                addButMouseClicked(e);
+                            }
+                        });
                         addPanel.add(addBut, new TableLayoutConstraints(3, 2, 3, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
                     }
                     conTabbedPane.addTab("\u6dfb\u52a0", addPanel);
@@ -212,7 +408,7 @@ public class FileRenameFrame extends JFrame {
                         numPanel2.setBackground(Color.white);
                         numPanel2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         numPanel2.setLayout(new TableLayout(new double[][] {
-                            {16, 90, 70, 10, TableLayout.PREFERRED, 10, TableLayout.PREFERRED, 70, 60, 60, TableLayout.PREFERRED},
+                            {16, 90, 70, 10, TableLayout.PREFERRED, 10, TableLayout.PREFERRED, 70, 70, 70, TableLayout.PREFERRED},
                             {30, TableLayout.PREFERRED, 30}}));
                         ((TableLayout)numPanel2.getLayout()).setHGap(5);
                         ((TableLayout)numPanel2.getLayout()).setVGap(5);
@@ -252,12 +448,24 @@ public class FileRenameFrame extends JFrame {
                         numViewBut1.setText("\u9884\u89c8");
                         numViewBut1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         numViewBut1.setBackground(Color.white);
+                        numViewBut1.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                numViewBut1MouseClicked(e);
+                            }
+                        });
                         numPanel2.add(numViewBut1, new TableLayoutConstraints(8, 1, 8, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
 
                         //---- numViewBut2 ----
                         numViewBut2.setText("\u6267\u884c");
                         numViewBut2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         numViewBut2.setBackground(Color.white);
+                        numViewBut2.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                numViewBut2MouseClicked(e);
+                            }
+                        });
                         numPanel2.add(numViewBut2, new TableLayoutConstraints(9, 1, 9, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
                     }
                     conTabbedPane.addTab("\u5e8f\u53f7", numPanel2);
@@ -267,7 +475,7 @@ public class FileRenameFrame extends JFrame {
                         replacePanel.setBackground(Color.white);
                         replacePanel.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         replacePanel.setLayout(new TableLayout(new double[][] {
-                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 60, TableLayout.PREFERRED},
+                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 70, TableLayout.PREFERRED},
                             {10, TableLayout.PREFERRED, TableLayout.PREFERRED, 10}}));
                         ((TableLayout)replacePanel.getLayout()).setHGap(5);
                         ((TableLayout)replacePanel.getLayout()).setVGap(5);
@@ -290,6 +498,12 @@ public class FileRenameFrame extends JFrame {
                         replaceViewBut.setText("\u9884\u89c8");
                         replaceViewBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         replaceViewBut.setBackground(Color.white);
+                        replaceViewBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                replaceViewButMouseClicked(e);
+                            }
+                        });
                         replacePanel.add(replaceViewBut, new TableLayoutConstraints(3, 1, 3, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
 
                         //---- replaceLabel2 ----
@@ -310,6 +524,12 @@ public class FileRenameFrame extends JFrame {
                         replaceBut.setText("\u6267\u884c");
                         replaceBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         replaceBut.setBackground(Color.white);
+                        replaceBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                replaceButMouseClicked(e);
+                            }
+                        });
                         replacePanel.add(replaceBut, new TableLayoutConstraints(3, 2, 3, 2, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
                     }
                     conTabbedPane.addTab("\u66ff\u6362", replacePanel);
@@ -319,7 +539,7 @@ public class FileRenameFrame extends JFrame {
                         removePanel.setBackground(Color.white);
                         removePanel.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         removePanel.setLayout(new TableLayout(new double[][] {
-                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 60, TableLayout.PREFERRED},
+                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 70, TableLayout.PREFERRED},
                             {30, TableLayout.PREFERRED, 30}}));
                         ((TableLayout)removePanel.getLayout()).setHGap(5);
                         ((TableLayout)removePanel.getLayout()).setVGap(5);
@@ -343,6 +563,12 @@ public class FileRenameFrame extends JFrame {
                         removeBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         removeBut.setBackground(Color.white);
                         removeBut.setActionCommand("\u6267\u884c");
+                        removeBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                removeButMouseClicked(e);
+                            }
+                        });
                         removePanel.add(removeBut, new TableLayoutConstraints(3, 1, 3, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
                     }
                     conTabbedPane.addTab("\u5220\u9664", removePanel);
@@ -352,7 +578,7 @@ public class FileRenameFrame extends JFrame {
                         rnamePanel.setBackground(Color.white);
                         rnamePanel.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         rnamePanel.setLayout(new TableLayout(new double[][] {
-                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 60, TableLayout.PREFERRED},
+                            {16, TableLayout.PREFERRED, TableLayout.PREFERRED, 70, TableLayout.PREFERRED},
                             {30, TableLayout.PREFERRED, 30}}));
                         ((TableLayout)rnamePanel.getLayout()).setHGap(5);
                         ((TableLayout)rnamePanel.getLayout()).setVGap(5);
@@ -376,26 +602,38 @@ public class FileRenameFrame extends JFrame {
                         renameBut.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
                         renameBut.setBackground(Color.white);
                         renameBut.setActionCommand("\u6267\u884c");
+                        renameBut.addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                renameButMouseClicked(e);
+                            }
+                        });
                         rnamePanel.add(renameBut, new TableLayoutConstraints(3, 1, 3, 1, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
                     }
                     conTabbedPane.addTab("\u91cd\u547d\u540d", rnamePanel);
                 }
                 conPanel.add(conTabbedPane);
             }
-            mainPanel.add(conPanel, new TableLayoutConstraints(3, 3, 5, 3, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+            mainPanel.add(conPanel, new TableLayoutConstraints(3, 3, 6, 3, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
 
             //======== listPanel ========
             {
                 listPanel.setBackground(Color.white);
                 listPanel.setLayout(new GridLayout());
 
-                //======== scrollPane1 ========
+                //======== panel1 ========
                 {
-                    scrollPane1.setViewportView(table1);
+                    panel1.setLayout(new GridLayout());
+
+                    //======== scrollPane1 ========
+                    {
+                        scrollPane1.setViewportView(table1);
+                    }
+                    panel1.add(scrollPane1);
                 }
-                listPanel.add(scrollPane1);
+                listPanel.add(panel1);
             }
-            mainPanel.add(listPanel, new TableLayoutConstraints(3, 5, 5, 5, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
+            mainPanel.add(listPanel, new TableLayoutConstraints(3, 5, 6, 5, TableLayoutConstraints.FULL, TableLayoutConstraints.FULL));
         }
         contentPane.add(mainPanel);
         pack();
@@ -403,52 +641,8 @@ public class FileRenameFrame extends JFrame {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JMenuBar menuBar;
-    private JMenu fileMenu;
-    private JMenuItem openMenu;
-    private JMenuItem outMenu;
-    private JMenu otherMenu;
-    private JPanel mainPanel;
-    private JLabel pathLab;
-    private JTextField pathField;
-    private JButton pathBut;
-    private JScrollPane pathScrollPane;
-    private JTree pathTree;
-    private JPanel conPanel;
-    private JTabbedPane conTabbedPane;
-    private JPanel addPanel;
-    private JLabel addLabel1;
-    private JTextField addTextField1;
-    private JButton addViewBut;
-    private JLabel addLabel2;
-    private JTextField addTextField2;
-    private JButton addBut;
-    private JPanel numPanel2;
-    private JLabel numLabel;
-    private JTextField numTextField1;
-    private JRadioButton autoRadio1;
-    private JRadioButton autoRadio2;
-    private JTextField numTextField2;
-    private JButton numViewBut1;
-    private JButton numViewBut2;
-    private JPanel replacePanel;
-    private JLabel replaceLabel1;
-    private JTextField replaceTextField1;
-    private JButton replaceViewBut;
-    private JLabel replaceLabel2;
-    private JTextField replaceTextField2;
-    private JButton replaceBut;
-    private JPanel removePanel;
-    private JLabel delLabel;
-    private JTextField delTextField;
-    private JButton removeBut;
-    private JPanel rnamePanel;
-    private JLabel reLabel;
-    private JTextField reTextField;
-    private JButton renameBut;
-    private JPanel listPanel;
-    private JScrollPane scrollPane1;
-    private JTable table1;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public static void main(String[] args) {
+        FileRenameFrame ff = new FileRenameFrame();
+    }
 }
