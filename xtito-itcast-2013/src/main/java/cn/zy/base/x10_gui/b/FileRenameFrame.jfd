@@ -1,0 +1,422 @@
+JFDML JFormDesigner: "5.2.5.0.333" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.GridLayout ) ) {
+			name: "this"
+			"minimumSize": new java.awt.Dimension( 900, 600 )
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			"title": "批量修改文件名"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+				"$columnSpecs": "16.0, 168.0, 10.0, 586.0, 60.0, 28.0, 16.0"
+				"$rowSpecs": "16.0, center:pref, 10.0, 132.0, 6.0, 317.0, 16.0"
+			} ) {
+				name: "mainPanel"
+				"minimumSize": new java.awt.Dimension( 884, 531 )
+				"background": new java.awt.Color( 246, 246, 246, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "pathLab"
+					"text": "文件夹路径："
+					"maximumSize": new java.awt.Dimension( 120, 30 )
+					"minimumSize": new java.awt.Dimension( 120, 30 )
+					"preferredSize": new java.awt.Dimension( 120, 30 )
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 16 )
+					"horizontalAlignment": 4
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridY": 1
+					"gridX": 1
+					"gridWidth": 2
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "pathField"
+					"preferredSize": new java.awt.Dimension( 180, 30 )
+					"minimumSize": new java.awt.Dimension( 180, 30 )
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridX": 3
+					"gridY": 1
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "pathBut"
+					"text": "转到"
+					"preferredSize": new java.awt.Dimension( 60, 34 )
+					"maximumSize": new java.awt.Dimension( 60, 34 )
+					"minimumSize": new java.awt.Dimension( 60, 34 )
+					"horizontalTextPosition": 2
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+					"background": new java.awt.Color( 246, 246, 246, 255 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridX": 4
+					"gridY": 1
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "pathScrollPane"
+					add( new FormComponent( "javax.swing.JTree" ) {
+						name: "pathTree"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridX": 1
+					"gridY": 3
+					"gridHeight": 3
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+					name: "conPanel"
+					"background": new java.awt.Color( 246, 246, 246, 255 )
+					add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+						name: "conTabbedPane"
+						"background": new java.awt.Color( 246, 246, 246, 255 )
+						"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$rowSpecs": "10.0, pref, pref, 10.0"
+							"hGap": 5
+							"vGap": 5
+						} ) {
+							name: "addPanel"
+							"background": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+							"font": &Font0 new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "addLabel1"
+								"text": "在文件名前添加："
+								"font": &Font1 new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+								"minimumSize": &Dimension0 new java.awt.Dimension( 150, 30 )
+								"maximumSize": &Dimension1 new java.awt.Dimension( 150, 30 )
+								"preferredSize": &Dimension2 new java.awt.Dimension( 150, 30 )
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 1
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "addTextField1"
+								"minimumSize": &Dimension3 new java.awt.Dimension( 300, 30 )
+								"preferredSize": &Dimension4 new java.awt.Dimension( 300, 30 )
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 2
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "addViewBut"
+								"text": "预览"
+								"font": &Font2 new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+								"background": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 3
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "addLabel2"
+								"text": "在文件名后添加："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "addTextField2"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 2
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "addBut"
+								"text": "执行"
+								"font": #Font2
+								"background": #Color1
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 3
+							} )
+						}, new FormLayoutConstraints( null ) {
+							"title": "添加"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+							"$columnSpecs": "16.0, 90.0, 70.0, 10.0, pref, 10.0, pref, 70.0, 60.0, 60.0, pref"
+							"$rowSpecs": "30.0, pref, 30.0"
+							"hGap": 5
+							"vGap": 5
+						} ) {
+							name: "numPanel2"
+							"background": #Color0
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "numLabel"
+								"text": "起始序号："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 1
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "numTextField1"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 2
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JRadioButton" ) {
+								name: "autoRadio1"
+								"text": "自动补零"
+								"background": &Color2 new java.awt.Color( 255, 255, 255, 255 )
+								"selected": true
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 4
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JRadioButton" ) {
+								name: "autoRadio2"
+								"text": "自定义补零"
+								"background": #Color2
+								"selected": true
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 1
+								"gridX": 6
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "numTextField2"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 1
+								"gridX": 7
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "numViewBut1"
+								"text": "预览"
+								"font": #Font2
+								"background": #Color1
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 8
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "numViewBut2"
+								"text": "执行"
+								"font": #Font2
+								"background": #Color1
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 1
+								"gridX": 9
+							} )
+						}, new FormLayoutConstraints( null ) {
+							"title": "序号"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$rowSpecs": "10.0, pref, pref, 10.0"
+							"hGap": 5
+							"vGap": 5
+						} ) {
+							name: "replacePanel"
+							"background": #Color0
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "replaceLabel1"
+								"text": "替换文件中的："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 1
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "replaceTextField1"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 2
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "replaceViewBut"
+								"text": "预览"
+								"font": #Font2
+								"background": #Color1
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 3
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "replaceLabel2"
+								"text": "替换为："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "replaceTextField2"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 2
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "replaceBut"
+								"text": "执行"
+								"font": #Font2
+								"background": #Color1
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridY": 2
+								"gridX": 3
+							} )
+						}, new FormLayoutConstraints( null ) {
+							"title": "替换"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$rowSpecs": "30.0, pref, 30.0"
+							"hGap": 5
+							"vGap": 5
+						} ) {
+							name: "removePanel"
+							"background": #Color0
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "delLabel"
+								"text": "删除文件名中的："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 1
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "delTextField"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 2
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "removeBut"
+								"text": "执行"
+								"font": #Font2
+								"background": #Color1
+								"actionCommand": "执行"
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 3
+								"gridY": 1
+							} )
+						}, new FormLayoutConstraints( null ) {
+							"title": "删除"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+							"$columnSpecs": "16.0, pref, pref, 60.0, pref"
+							"$rowSpecs": "30.0, pref, 30.0"
+							"hGap": 5
+							"vGap": 5
+						} ) {
+							name: "rnamePanel"
+							"background": #Color0
+							"font": #Font0
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "reLabel"
+								"text": "全部命名为："
+								"font": #Font1
+								"minimumSize": #Dimension0
+								"maximumSize": #Dimension1
+								"preferredSize": #Dimension2
+								"horizontalAlignment": 4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 1
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "reTextField"
+								"minimumSize": #Dimension3
+								"preferredSize": #Dimension4
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 2
+								"gridY": 1
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "renameBut"
+								"text": "执行"
+								"font": #Font2
+								"background": #Color1
+								"actionCommand": "执行"
+							}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+								"gridX": 3
+								"gridY": 1
+							} )
+						}, new FormLayoutConstraints( null ) {
+							"title": "重命名"
+						} )
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridX": 3
+					"gridY": 3
+					"gridWidth": 3
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+					name: "listPanel"
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "table1"
+						} )
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+					"gridX": 3
+					"gridY": 5
+					"gridWidth": 3
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar"
+				"minimumSize": new java.awt.Dimension( 2, 30 )
+				"preferredSize": new java.awt.Dimension( 74, 30 )
+				"font": new java.awt.Font( "Microsoft YaHei UI", 0, 14 )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "fileMenu"
+					"text": "文件"
+					"actionCommand": "text"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "openMenu"
+						"text": "打开"
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "fileSeparator1"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "outMenu"
+						"text": "退出"
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "otherMenu"
+					"text": "备用"
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 935, 595 )
+		} )
+	}
+}
