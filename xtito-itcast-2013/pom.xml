@@ -32,6 +32,11 @@
             <groupId>com.jgoodies</groupId>
             <artifactId>forms</artifactId>
         </dependency>
+        <!-- SeaGlass皮肤 -->
+        <dependency>
+            <groupId>com.seaglasslookandfeel</groupId>
+            <artifactId>seaglasslookandfeel</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

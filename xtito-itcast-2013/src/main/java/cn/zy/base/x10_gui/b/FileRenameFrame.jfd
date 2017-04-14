@@ -10,6 +10,7 @@ new FormModel {
 			"title": "批量修改文件名"
 			"visible": true
 			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowOpened", "thisWindowOpened", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
 				"$columnSpecs": "16.0, 168.0, 10.0, 566.0, 10.0, 70.0, 28.0, 16.0"
 				"$rowSpecs": "16.0, center:pref, 10.0, 132.0, 6.0, 317.0, 16.0"

@@ -4,14 +4,16 @@
 
 package cn.zy.base.x10_gui.b;
 
-import java.awt.event.*;
-import com.intellij.uiDesigner.core.*;
-import com.jgoodies.forms.layout.*;
 import info.clearthought.layout.TableLayout;
 import info.clearthought.layout.TableLayoutConstraints;
 
 import javax.swing.*;
+import javax.swing.table.TableColumn;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
 
 /**
  * @author ZhangYuan
@@ -92,6 +94,7 @@ public class FileRenameFrame extends JFrame {
     private void pathButMouseClicked(MouseEvent e) {
         if (e.getClickCount() == 1) {
             System.out.println("鼠标单击开始...");
+            getTableData("a");
         }
     }
 
@@ -178,6 +181,42 @@ public class FileRenameFrame extends JFrame {
         }
     }
 
+    private void getTableData(String path) {
+        if (path != null && !"".equals(path.trim())) {
+            TableColumn col1 = new TableColumn();
+            col1.setHeaderValue("abc");
+            table1.addColumn(col1);
+        }
+    }
+
+    private void getRootPath() {
+        DefaultMutableTreeNode top = new DefaultMutableTreeNode("计算机");
+
+        File[] files = File.listRoots();
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(file);
+                top.add(childNode);
+
+                File[] childFiles = file.listFiles();
+                if (childFiles != null && childFiles.length > 0) {
+                    for (File childFile : childFiles) {
+                        if (childFile.isDirectory()) {
+                            DefaultMutableTreeNode childChildNode = new DefaultMutableTreeNode(childFile);
+                            childNode.add(childChildNode);
+                        }
+                    }
+                }
+            }
+        }
+
+        pathTree.setModel(new DefaultTreeModel(top));
+    }
+
+    private void thisWindowOpened(WindowEvent e) {
+        getRootPath();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         menuBar = new JMenuBar();
@@ -237,6 +276,10 @@ public class FileRenameFrame extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 thisWindowClosing(e);
+            }
+            @Override
+            public void windowOpened(WindowEvent e) {
+                thisWindowOpened(e);
             }
         });
         Container contentPane = getContentPane();
@@ -642,7 +685,18 @@ public class FileRenameFrame extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        FileRenameFrame ff = new FileRenameFrame();
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+
+//        try {
+//            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+            FileRenameFrame ff = new FileRenameFrame();
+
+
+
+
+//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+//            e.printStackTrace();
+//        }
+
     }
 }
