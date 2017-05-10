@@ -4,6 +4,7 @@
 
 package cn.zy.base.x10_gui.b;
 
+import javax.swing.table.*;
 import info.clearthought.layout.TableLayout;
 import info.clearthought.layout.TableLayoutConstraints;
 
@@ -67,7 +68,7 @@ public class FileRenameFrame extends JFrame {
     private JPanel listPanel;
     private JPanel panel1;
     private JScrollPane scrollPane1;
-    private JTable table1;
+    private JTable conTable;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
     public FileRenameFrame() {
@@ -183,9 +184,11 @@ public class FileRenameFrame extends JFrame {
 
     private void getTableData(String path) {
         if (path != null && !"".equals(path.trim())) {
-            TableColumn col1 = new TableColumn();
-            col1.setHeaderValue("abc");
-            table1.addColumn(col1);
+            String[] title = {"原文件名", "新文件名", "扩展名", "状态"};
+            String[][] column = {};
+
+            //---- conTable ----
+            conTable.setModel(new DefaultTableModel(column, title));
         }
     }
 
@@ -265,7 +268,7 @@ public class FileRenameFrame extends JFrame {
         listPanel = new JPanel();
         panel1 = new JPanel();
         scrollPane1 = new JScrollPane();
-        table1 = new JTable();
+        conTable = new JTable();
 
         //======== this ========
         setMinimumSize(new Dimension(900, 600));
@@ -670,7 +673,30 @@ public class FileRenameFrame extends JFrame {
 
                     //======== scrollPane1 ========
                     {
-                        scrollPane1.setViewportView(table1);
+
+                        //---- conTable ----
+                        conTable.setModel(new DefaultTableModel(
+                            new Object[][] {
+                                {null, null, null, null, null},
+                                {null, null, null, null, null},
+                            },
+                            new String[] {
+                                " ", "\u539f\u6587\u4ef6\u540d", "\u65b0\u6587\u4ef6\u540d", "\u6269\u5c55\u540d", "\u72b6\u6001"
+                            }
+                        ));
+                        {
+                            TableColumnModel cm = conTable.getColumnModel();
+                            cm.getColumn(0).setMaxWidth(60);
+                            cm.getColumn(0).setPreferredWidth(60);
+                            cm.getColumn(3).setMaxWidth(80);
+                            cm.getColumn(3).setPreferredWidth(80);
+                            cm.getColumn(4).setMaxWidth(50);
+                            cm.getColumn(4).setPreferredWidth(50);
+                        }
+                        //设置表格和表头的默认渲染器
+//                        conTable.setDefaultRenderer(Object.class, simpleTableRender);
+//                        conTable.getTableHeader().setDefaultRenderer(headerRenderer);
+                        scrollPane1.setViewportView(conTable);
                     }
                     panel1.add(scrollPane1);
                 }

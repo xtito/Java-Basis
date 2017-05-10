@@ -394,7 +394,47 @@ new FormModel {
 						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 							name: "scrollPane1"
 							add( new FormComponent( "javax.swing.JTable" ) {
-								name: "table1"
+								name: "conTable"
+								"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+									add( new java.util.Vector {
+										add( "" )
+										add( null )
+										add( null )
+										add( null )
+										add( null )
+									} )
+									add( new java.util.Vector {
+										add( null )
+										add( null )
+										add( null )
+										add( null )
+										add( null )
+									} )
+								}, new java.util.Vector {
+									add( " " )
+									add( "原文件名" )
+									add( "新文件名" )
+									add( "扩展名" )
+									add( "状态" )
+								}, new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+								}, new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+								}, new java.util.Vector {
+									add( new com.jformdesigner.model.SwingTableColumn( null, 60, 0, 60, true ) )
+									add( null )
+									add( null )
+									add( new com.jformdesigner.model.SwingTableColumn( null, 80, 0, 80, true ) )
+									add( new com.jformdesigner.model.SwingTableColumn( null, 50, 0, 50, true ) )
+								} )
 							} )
 						} )
 					} )
