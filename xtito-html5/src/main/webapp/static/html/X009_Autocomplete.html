@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autocomplete的使用</title>
+</head>
+<body>
+
+<form action="#" method="post" autocomplete="on">
+    <label for="user_text">
+        <!--请输入值：<input type="text" id="user_text" name="text" autocomplete="on" />-->
+        请输入值：<input type="text" id="user_text" name="text" list="cityList" />
+        <datalist id="cityList">
+            <option value="BeiJing">BeiJing</option>
+            <option value="TianJing">TianJing</option>
+            <option value="ShangHai">ShangHai</option>
+            <option value="ShanXi">ShanXi</option>
+        </datalist>
+    </label>
+
+    <button type="submit" id="sub_but">提交内容</button>
+</form>
+
+</body>
+</html>
