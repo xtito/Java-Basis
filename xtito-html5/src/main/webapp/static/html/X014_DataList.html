@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataList的使用</title>
+</head>
+<body>
+
+<form id="user_form" action="#" method="get">
+    <label for="text">
+        请输入值：<input type="url" id="text" name="url" list="url_list" />
+    </label>
+
+    <datalist id="url_list">
+        <option>http://www.sina.com.cn</option>
+        <option>http://www.sohu.com</option>
+        <option>http://www.163.com</option>
+<!--
+        <option label="新浪">http://www.sina.com.cn</option>
+        <option label="搜狐">http://www.sohu.com</option>
+        <option label="网易">http://www.163.com</option>
+-->
+    </datalist>
+
+    <button type="submit" id="sub_but">提交内容</button>
+</form>
+
+</body>
+</html>

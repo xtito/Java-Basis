@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form重写的使用</title>
+</head>
+<body>
+
+
+<!--
+    formaction: 用于重写表单的 action 属性
+    formenctype: 用于重写表单的 enctype 属性
+    formmethod: 用于重写表单的 method 属性
+    formnovalidate: 用于重写表单的 novalidate 属性
+    formtarget: 用于重写表单的 target 属性
+-->
+<form id="user_form" action="#" method="post" enctype="multipart/form-data" target="_self">
+    <label for="email">
+        请输Email地址：<input type="email" id="email" name="email" />
+    </label>
+
+    <br/><br/>
+
+    <!--<input type="submit" id="but1" formaction="1.html" value="提交到页面1" />-->
+    <button type="submit" id="but2" formaction="1.jsp">提交到页面2</button>
+
+    <button type="submit" id="but3" formaction="2.jsp">提交到页面3</button>
+
+    <button type="submit" id="but4" formaction="3.jsp">提交到页面4</button>
+</form>
+
+
+</body>
+</html>

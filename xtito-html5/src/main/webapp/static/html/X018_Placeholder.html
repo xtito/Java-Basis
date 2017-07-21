@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Placeholder和Re的使用</title>
+</head>
+<body>
+
+<form id="user_form" action="#" method="get">
+    <label for="userName">
+        请输用户名称：<input type="text" id="userName" name="userName" pattern="([a-z]|[A-Z]){6}" placeholder="请输入6位字符" required="required"/>
+    </label>
+
+    <br/><br/>
+
+    <label for="text">
+        请输邮政编码：<input type="text" id="text" name="post" pattern="[0-9]{6}" placeholder="请输入6位数的邮政编码"/>
+    </label>
+
+    <button type="submit" id="sub_but">提交内容</button>
+</form>
+
+</body>
+</html>
