@@ -5,7 +5,7 @@
     <parent>
         <artifactId>xtito-project</artifactId>
         <groupId>com.xtito</groupId>
-        <version>1.0.0</version>
+        <version>1.0-RELEASE</version>
     </parent>
 
     <!-- 当前pom模型的版本 -->
