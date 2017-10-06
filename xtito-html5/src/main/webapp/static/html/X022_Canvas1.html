@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas元素的使用</title>
+    <style type="text/css">
+        .my-canvas {
+            border: 1px solid #666;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function init() {
+            var c = document.getElementById("myCanvas");
+            var cxt = c.getContext("2d");
+            cxt.fillStyle = "#ff00ff";
+
+            // 相对于画布左上角，第一参数 x轴；第二参数 y轴；第三参数 长度； 第四参数 宽度
+            cxt.fillRect(50, 25, 100, 50);
+        }
+
+    </script>
+</head>
+<body onload="init()">
+
+<canvas id="myCanvas" class="my-canvas" width="200" height="100">
+    您的浏览器不支持canvas元素，请更新或更换您的浏览器。
+</canvas>
+
+</body>
+</html>

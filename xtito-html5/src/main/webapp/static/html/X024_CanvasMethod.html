@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas元素的使用</title>
+    <style type="text/css">
+        .my-canvas {
+            border: 1px solid #666;
+        }
+
+        .min-body {
+            width: 1024px;
+            margin: 0 auto;
+            /*text-align: center;*/
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function myCanvas() {
+            var c = document.getElementById("myCanvas");
+            return c.getContext("2d");
+        }
+
+        /**
+         * 开始一条路径，移动到位置 0,0。创建到达位置 300,150 的一条线：
+         * x    路径的目标位置的 x 坐标
+         * y    路径的目标位置的 y 坐标
+         */
+        function myMoveTo() {
+            var cxt = myCanvas();
+            cxt.beginPath();
+            cxt.moveTo(0, 0);// 把路径移动到画布中的指定点，不创建线条
+            // 第一条线绘制以后，后面的线会根据第一条线的x y最右侧为基准画线
+            cxt.lineTo(300, 150);
+//            cxt.lineTo(40,60);
+            cxt.stroke();// 绘制已定义的路径
+        }
+
+        function canvasIsAvailable() {
+            var c = document.getElementById("myCanvas");
+            if (c.getContext) {
+                alert("您的浏览器支持Canvas");
+            } else {
+                alert("您的浏览器不支持Canvas");
+            }
+        }
+
+        // 绘制矩形
+        function rectangular() {
+            var cxt = myCanvas();
+//            cxt.fillStyle = "#ff00ff";
+//            cxt.fillStyle = "red";
+//            cxt.fillStyle = "rgb(255, 0, 0)";
+//            cxt.fillStyle = "rgb(80%, 0%, 0%)";
+            cxt.fillStyle = "rgba(255, 0, 0, 1)";
+            cxt.fillRect(10, 10, 200, 100);
+
+            // 设置笔触的颜色、渐变或模式
+            cxt.strokeStyle = "#fff";
+            // 绘制矩形
+            cxt.strokeRect(16, 16, 188, 88);
+        }
+
+
+        // 测试 beginPathTest 方法
+        function beginPathTest() {
+            var cxt = myCanvas();
+
+            cxt.beginPath();
+            cxt.lineWidth = "5";// 属性设置或返回当前线条的宽度，以像素计（路径宽度）
+            cxt.strokeStyle = "red"; // 红色路径
+            cxt.moveTo(0, 75);
+            // 添加一个新点，然后在画布中创建从该点到最后指定点的线条ss
+            cxt.lineTo(250, 75);
+            cxt.stroke(); // 进行绘制
+
+            cxt.beginPath();
+            cxt.strokeStyle = "blue"; // 蓝色路径
+            cxt.moveTo(50, 0);
+            cxt.lineTo(150, 130);
+            cxt.stroke(); // 进行绘制
+        }
+
+
+        // 绘制圆形
+        function circular() {
+            var cxt = myCanvas();
+            cxt.fillStyle = "#ff00ff";
+            cxt.beginPath();// 起始一条路径，或重置当前路径
+            /**
+             * 创建弧/曲线（用于创建圆形或部分圆）
+             * 参数1：圆的中心的 x 坐标。（X轴中从左到右距离Y轴左侧的距离）
+             * 参数2：圆的中心的 y 坐标。（Y轴中从上到下距离X轴顶部的距离）
+             * 参数3：圆的半径
+             * 参数4：起始角，以弧度计。（弧的圆形的三点钟位置是 0 度）。
+             * 参数5：结束角，以弧度计。
+             * 参数6：可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+             */
+            cxt.arc(100, 75, 60, 0, Math.PI * 2, true);
+            cxt.closePath();// 创建从当前点回到起始点的路径
+            cxt.fill();// 填充当前绘图（路径）
+        }
+
+        // 循环画
+        function eachCircular() {
+            var cxt = myCanvas();
+            for (var i = 0; i < 15; i++) {
+                cxt.strokeStyle = "#ff00ff";
+                cxt.beginPath();// 起始一条路径，或重置当前路径
+                cxt.arc(0, 150, i * 10, 0, Math.PI * 3 / 2, true);
+                cxt.stroke(); // 进行绘制
+            }
+        }
+
+        // 绘制三角形
+        function triangle() {
+            var cxt = myCanvas();
+            cxt.fillStyle = "#ff00ff";
+            cxt.beginPath();
+            cxt.moveTo(25, 25);
+            cxt.lineTo(100, 25);
+            cxt.lineTo(35, 100);
+            cxt.fill();// 填充当前绘制
+        }
+
+        // 绘制三角形
+        function triangle1() {
+            var cxt = myCanvas();
+            cxt.strokeStyle = "#ff00ff";
+            cxt.beginPath();
+            cxt.moveTo(25, 25);
+            cxt.lineTo(100, 25);
+            cxt.lineTo(35, 100);
+            cxt.closePath();
+            cxt.stroke();// 进行绘制
+        }
+
+        function clearCanvas() {
+            var cxt = myCanvas();
+            cxt.clearRect(0, 0, 1024, 400);
+        }
+
+
+        // 创建二次方贝塞尔曲线
+        function myQuadraticCurveTo() {
+            var cxt = myCanvas();
+            cxt.strokeStyle = "#ff00ff";
+            cxt.beginPath();
+            cxt.moveTo(0, 200);
+            /**
+             * 参数1：贝塞尔控制点的 x 坐标
+             * 参数2：贝塞尔控制点的 y 坐标
+             * 参数3：结束点的 x 坐标
+             * 参数4：结束点的 y 坐标
+             */
+            cxt.quadraticCurveTo(75, 50, 300, 200);
+            cxt.stroke();
+            cxt.globalCompositeOperation = "source-over";
+
+            // 下面绘制的直线用于表示上面曲线的控制点和控制线，控制点坐标即两直线的交点（75, 50）
+            cxt.strokeStyle = "red";
+            cxt.beginPath();
+            cxt.moveTo(75, 50);
+            cxt.lineTo(0, 200);
+            cxt.moveTo(75, 50);
+            cxt.lineTo(300, 200);
+            cxt.stroke();
+        }
+
+        // 创建三次方贝塞尔曲线
+        function thirdQuadraticCurveTo() {
+            var cxt = myCanvas();
+            cxt.strokeStyle = "dark";
+            cxt.beginPath();
+            cxt.moveTo(0, 200);
+            /**
+             * 创建三次方贝塞尔曲线
+             * 参数1：第一个贝塞尔控制点的 x 坐标
+             * 参数2：第一个贝塞尔控制点的 y 坐标
+             * 参数3：第二个贝塞尔控制点的 x 坐标
+             * 参数4：第二个贝塞尔控制点的 y 坐标
+             * 参数5：结束点的 x 坐标
+             * 参数6：结束点的 y 坐标
+             */
+            cxt.bezierCurveTo(25, 50, 75, 50, 300, 200);
+            cxt.stroke();
+            cxt.globalCompositeOperation = "source-over";
+
+            // 下面绘制的直线用于表示上面曲线的控制点和控制线，控制点坐标即两直线的交点（75, 50）
+            cxt.strokeStyle = "#ff00ff";
+            cxt.beginPath();
+            cxt.moveTo(25, 50);
+            cxt.lineTo(0, 200);
+            cxt.moveTo(75, 50);
+            cxt.lineTo(500, 200);
+            cxt.stroke();
+        }
+
+
+        // 保存与恢复 Canvas 状态
+        function saveOrbackup() {
+            var cxt = myCanvas();
+            cxt.fillStyle = "#ff00ff";
+            cxt.strokeStyle = "blue";
+            cxt.fillRect(20, 20, 100, 100);
+            cxt.strokeRect(20, 20, 100, 100);
+            cxt.fill();
+            cxt.stroke();
+
+            // 保存当前 Canvas 状态
+            cxt.save();
+
+            // 绘制另外一个矩形
+            cxt.fillStyle = "#ff0000";
+            cxt.strokeStyle = "green";
+            cxt.fillRect(140, 20, 100, 100);
+            cxt.strokeRect(140, 20, 100, 100);
+            cxt.fill();
+            cxt.stroke();
+
+            // 恢复第一个矩形的状态
+            cxt.restore();
+
+            // 绘制两个矩形
+            cxt.fillRect(20, 140, 50, 50);
+            cxt.strokeRect(80, 140, 50, 50);
+        }
+
+
+        // 移动坐标空间
+        function moveXy() {
+            var cxt = myCanvas();
+            // 注意：所有的移动都是基于这一上下文
+            cxt.translate(80, 80);
+            for (var i=1; i<10; i++) {
+                cxt.save();
+                cxt.translate(60, 0);
+                drawTop(cxt, "rgb("+ (30*i) +","+(255-30*i)+", 255)");
+                drawGrip(cxt);
+            }
+        }
+
+        function drawTop(cxt, fillStyle) {
+            cxt.fillStyle = fillStyle;
+            cxt.beginPath();
+            cxt.arc(0, 0, 30, 0, Math.PI, true);
+            cxt.closePath();
+            cxt.fill();
+        }
+
+        function drawGrip(cxt) {
+            cxt.save();
+            cxt.fillStyle = "blue";
+            cxt.fillRect(-1.5, 0, 1.5, 40);
+            cxt.beginPath();
+            cxt.strokeStyle = "blue";
+            cxt.arc(-5, 40, 4, Math.PI, Math.PI*2, true);
+            cxt.stroke();
+            cxt.closePath();
+            cxt.restore();
+        }
+
+        // 旋转坐标空间
+        function xzXy() {
+            var cxt = myCanvas();
+            // 注意：所有的移动都是基于这一上下文
+            cxt.translate(150, 150);
+            for (var i=1; i<10; i++) {
+                cxt.save();
+                cxt.rotate(Math.PI*(2/4+i/4));
+                cxt.translate(0, -100);
+                drawTop(cxt, "rgb("+ (30*i) +","+(255-30*i)+", 255)");
+                drawGrip(cxt);
+                cxt.restore();
+            }
+        }
+        // 移动坐标空间结束
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+<div class="min-body">
+    <canvas id="myCanvas" class="my-canvas" width="1024" height="400">
+        您的浏览器不支持canvas元素，请更新或更换您的浏览器。
+    </canvas>
+
+
+    <br/><br/>
+
+    <button type="button" onclick="clearCanvas()">清空画布</button>
+    <button type="button" onclick="myMoveTo()">MoveTo()</button>
+    <button type="button" onclick="rectangular()">绘制矩形</button>
+    <button type="button" onclick="beginPathTest()">beginPath()</button>
+    <button type="button" onclick="circular()">绘制圆形</button>
+    <button type="button" onclick="eachCircular()">循环绘制圆形</button>
+    <button type="button" onclick="triangle()">绘制实心三角形</button>
+    <button type="button" onclick="triangle1()">绘制空心三角形</button>
+    <button type="button" onclick="myQuadraticCurveTo()">创建二次方贝塞尔曲线</button>
+
+    <br/><br/>
+
+    <button type="button" onclick="thirdQuadraticCurveTo()">创建三次方贝塞尔曲线</button>
+    <button type="button" onclick="saveOrbackup()">保存与恢复</button>
+    <button type="button" onclick="moveXy()">移动坐标空间</button>
+    <button type="button" onclick="xzXy()">旋转坐标空间</button>
+
+
+
+</div>
+
+</body>
+</html>

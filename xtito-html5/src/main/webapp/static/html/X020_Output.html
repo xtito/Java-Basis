@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Output的使用</title>
+    <script type="text/javascript">
+        function multi() {
+            var a = parseInt(prompt("请输入第1个数字。", 0));
+            var b = parseInt(prompt("请输入第2个数字。", 0));
+            var result = document.getElementsByName("result");
+            result[0].value = a*b;
+        }
+    </script>
+</head>
+<body onload="multi()">
+
+两数的乘积为：<output id="abc" name="result"></output>
+
+</body>
+</html>

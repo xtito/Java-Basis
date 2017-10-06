@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novalidate属性的使用</title>
+</head>
+<body>
+
+<!--
+ novalidate: 不对表单做验证
+-->
+
+<form id="user_form" action="#" method="get" novalidate="novalidate">
+    <label for="text">
+        请输邮政编码：<input type="text" id="text" name="post" pattern="[0-9]{6}" title="请输入6位数的邮政编码"/>
+    </label>
+
+    <button type="submit" id="sub_but">提交内容</button>
+</form>
+
+</body>
+</html>
