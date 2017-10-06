@@ -29,6 +29,7 @@
         <module>xtito-util</module>
         <module>xtito-design-patterns</module>
         <module>xtito-html5</module>
+        <module>xtito-web</module>
     </modules>
 
     <!-- 配置版本 -->
