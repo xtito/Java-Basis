@@ -28,7 +28,10 @@ public class Quickstart {
 
         // Use the shiro.ini file at the root of the classpath
         // (file: and url: prefixes load from files and urls respectively):
+
+        // 构建SecurityManager工厂，IniSecurityManagerFactory可以从ini文件中初始化SecurityManager环境
         Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        // 通过工厂创建SecurityManager
         SecurityManager securityManager = factory.getInstance();
 
         // for this simple example quickstart, make the SecurityManager
@@ -37,12 +40,15 @@ public class Quickstart {
         // webapps.  That is outside the scope of this simple quickstart, so
         // we'll just do the bare minimum so you can continue to get a feel
         // for things.
+
+        // 将SecurityManager设置到运行环境中
         SecurityUtils.setSecurityManager(securityManager);
 
         // Now that a simple Shiro environment is set up, let's see what you can do:
 
         // get the currently executing user:
         // 获取当前的 Subject. 调用 SecurityUtils.getSubject();
+        // 创建一个Subject实例，该实例认证需要使用上面创建的SecurityManager
         Subject currentUser = SecurityUtils.getSubject();
 
         // Do some stuff with a Session (no need for a web or EJB container!!!)
