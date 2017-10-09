@@ -5,10 +5,14 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
     <!-- 加载spring容器 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:spring/application*.xml</param-value>
+        <param-value>classpath*:spring/application.xml</param-value>
     </context-param>
 
     <listener>
@@ -45,7 +49,7 @@
             第三种：/*，这样配置不对，使用这种配置，最终要转发到一个jsp页面时，
             仍然会由DispatcherServlet解析jsp地址，不能根据jsp页面找到handler，会报错。
          -->
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!-- 配置 Spring Mvc 结束 -->
 
@@ -62,6 +66,11 @@
             <param-name>targetFilterLifecycle</param-name>
             <param-value>true</param-value>
         </init-param>
+        <!-- 如果 ShiroFilterFactoryBean 的 id 不想跟 filter-name 一致，则需要配置下面的 beanName -->
+        <!--<init-param>-->
+            <!--<param-name>targetBenName</param-name>-->
+            <!--<param-value>abcFilter</param-value>-->
+        <!--</init-param>-->
     </filter>
 
     <filter-mapping>

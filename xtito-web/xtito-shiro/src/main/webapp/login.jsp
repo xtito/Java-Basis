@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<footer>
+<footer class="footer">
     <div class="login-footer">
         <div class="footer-desc">
             <h4>Copyright © XXX, Inc. All rights reserved.</h4>

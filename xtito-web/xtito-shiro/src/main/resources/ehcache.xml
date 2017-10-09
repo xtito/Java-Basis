@@ -11,29 +11,6 @@
          java.io.tmpdir - Default temp file path -->
     <diskStore path="java.io.tmpdir"/>
 
-    <cache name="authorizationCache"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
-
-    <cache name="authenticationCache"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
-
-    <cache name="shiro-activeSessionCache"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
 
     <!--Default Cache configuration. These will applied to caches programmatically created through
         the CacheManager.

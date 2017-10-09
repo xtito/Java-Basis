@@ -9,7 +9,7 @@ import org.apache.shiro.realm.Realm;
  * Created by [Zy]
  * 2017/10/9 11:09
  */
-public class ShiroRealm implements Realm {
+public class JdbcRealm implements Realm {
 
     @Override
     public String getName() {

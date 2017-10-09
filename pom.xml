@@ -92,10 +92,12 @@
         <dom4j.version>1.6.1</dom4j.version>
 
         <!-- Http Client -->
-        <httpclient.version>3.1</httpclient.version>
+        <httpclient.version>4.5.3</httpclient.version>
 
         <!-- 谷歌工具类 guava -->
         <guava.version>23.0</guava.version>
+        <!-- 二维码生成 -->
+        <zxing.version>3.3.0</zxing.version>
 
         <!-- Apache Shiro -->
         <shiro.version>1.4.0</shiro.version>
@@ -149,6 +151,23 @@
     </properties>
 
     <dependencies>
+        <!-- Tomcat 依赖 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+            <!--打包时不需要包含-->
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+            <!--打包时不需要包含-->
+        </dependency>
+        <!-- Tomcat 依赖 End -->
+
         <!-- 日志文件管理包 -->
         <!-- Log Start -->
         <dependency>
@@ -504,6 +523,25 @@
                 <groupId>org.apache.xmlbeans</groupId>
                 <artifactId>xmlbeans</artifactId>
                 <version>${xmlbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <!-- 生成二维码 -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.whalin</groupId>
+                <artifactId>Memcached-Java-Client</artifactId>
+                <version>3.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
