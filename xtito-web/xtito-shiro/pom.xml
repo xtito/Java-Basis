@@ -18,7 +18,7 @@
     <name>xtito-shiro</name>
 
     <!-- 定义该项目的打包方式 -->
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <description>这是Shiro练习</description>
 
