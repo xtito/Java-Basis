@@ -130,7 +130,7 @@
 
         <!-- WEB相关 -->
         <!-- freemarker 版本号 -->
-        <freemarker.version>2.3.19</freemarker.version>
+        <freemarker.version>2.3.25-incubating</freemarker.version>
 
         <!--taglibs JSTL需要引入的-->
         <taglibs.version>1.1.2</taglibs.version>

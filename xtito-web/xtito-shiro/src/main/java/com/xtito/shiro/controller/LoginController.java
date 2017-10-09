@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/loginCtrl")
 public class LoginController {
 
-    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request) {
         System.out.println("进来了");
         return "login";
