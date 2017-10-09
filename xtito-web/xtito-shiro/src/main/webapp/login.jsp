@@ -29,32 +29,34 @@
 <div class="login-con">
     <div class="login-outer">
         <div class="login-wrap">
-            <div class="title"></div>
-            <div class="login-content">
-                <div class="login-group mb20">
-                    <div class="group-con">
-                        <div class="input-group input-group-lg">
+            <div class="title tl f16 mb10">用户名登录</div>
+            <form action="${ctx}/loginCtrl/login" method="post">
+                <div class="login-content">
+                    <div class="login-group mb20">
+                        <div class="group-con">
+                            <div class="input-group input-group-lg">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
-                            <input class="form-control" type="text" placeholder="用户名" name="icUser.pwd">
+                                <input class="form-control" type="text" placeholder="用户名" name="icUser.pwd">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="login-group mb20">
-                    <div class="group-con">
-                        <div class="input-group input-group-lg">
+                    <div class="login-group mb20">
+                        <div class="group-con">
+                            <div class="input-group input-group-lg">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-lock"></i>
                             </span>
-                            <input class="form-control" type="password" placeholder="密码" name="icUser.pwd">
+                                <input class="form-control" type="password" placeholder="密码" name="icUser.pwd">
+                            </div>
                         </div>
                     </div>
+                    <div class="login-submit  btn-group-lg">
+                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    </div>
                 </div>
-                <div class="login-submit  btn-group-lg">
-                    <button type="button" class="btn btn-primary btn-block">登录</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

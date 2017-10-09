@@ -145,7 +145,7 @@
                 /static/** = anon
                 /login.jsp = anon
                 /index.jsp = anon
-                /shiro/login = anon
+                /loginCtrl/login = anon
                 /shiro/logout = logout
 
                 /user.jsp = roles[user]
