@@ -27,9 +27,9 @@
     <!-- 1. 配置 SecurityManager! -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="cacheManager" ref="cacheManager"/>
-        <property name="realm" ref="jdbcRealm" />
-
-        <!--<property name="authenticator" ref="authenticator" />-->
+        <!--<property name="realm" ref="jdbcRealm" />-->
+        <!-- 多Realm -->
+        <property name="authenticator" ref="authenticator" />
 
         <!--<property name="realms">-->
             <!--<list>-->
@@ -58,12 +58,20 @@
         <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
     </bean>
 
-    <!--<bean id="authenticator"-->
-          <!--class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">-->
-        <!--<property name="authenticationStrategy">-->
-            <!--<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy" />-->
-        <!--</property>-->
-    <!--</bean>-->
+    <!-- 多Realm需要配置该认证器 -->
+    <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+        <property name="realms">
+            <list>
+                <ref bean="jdbcRealm"/>
+                <ref bean="secondRealm"/>
+            </list>
+        </property>
+
+        <!-- 指定认证策略 -->
+        <property name="authenticationStrategy">
+            <bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy" />
+        </property>
+    </bean>
 
     <!-- Used by the SecurityManager to access security data (users, roles, etc).
          Many other realm implementations can be used too (PropertiesRealm,
@@ -72,14 +80,30 @@
     	3. 配置 Realm
     	3.1 直接配置实现了 org.apache.shiro.realm.Realm 接口的 bean
     -->
-    <bean id="jdbcRealm" class="com.xtito.shiro.realm.JdbcRealm">
-        <!--<property name="credentialsMatcher">-->
-            <!--<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
-                <!--<property name="hashAlgorithmName" value="MD5" />-->
-                <!--<property name="hashIterations" value="1024" />-->
-            <!--</bean>-->
-        <!--</property>-->
+    <!--<bean id="jdbcRealm" class="com.xtito.shiro.realm.AuthRealm" />-->
+    <bean id="jdbcRealm" class="com.xtito.shiro.realm.AuthRealm">
+        <!-- 指定加密算法 -->
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <!-- 可以加密的次数，针对MD5加密的结果再次加密的次数 -->
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
     </bean>
+
+    <bean id="secondRealm" class="com.xtito.shiro.realm.SecondRealm">
+        <!-- 指定加密算法 -->
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="SHA1"/>
+                <!-- 可以加密的次数，针对MD5加密的结果再次加密的次数 -->
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+    </bean>
+
+
 
     <!--<bean id="secondRealm" class="com.atguigu.shiro.realms.SecondRealm">-->
         <!--<property name="credentialsMatcher">-->

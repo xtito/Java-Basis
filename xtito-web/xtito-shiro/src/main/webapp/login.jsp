@@ -38,7 +38,7 @@
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
-                                <input class="form-control" type="text" placeholder="用户名" name="icUser.pwd">
+                                <input class="form-control" type="text" placeholder="用户名" name="userName">
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-lock"></i>
                             </span>
-                                <input class="form-control" type="password" placeholder="密码" name="icUser.pwd">
+                                <input class="form-control" type="password" placeholder="密码" name="pwd">
                             </div>
                         </div>
                     </div>
