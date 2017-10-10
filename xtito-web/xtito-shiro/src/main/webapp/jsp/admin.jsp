@@ -5,17 +5,17 @@
 <%--
   
   Created by User: Zy
-  Created Date: 2017/10/9 10:47
+  Created Date: 2017/10/10 15:06
 --%>
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin page</title>
 </head>
 
 <body>
 
-    <h1>User page</h1>
+    <h1>Admin Page</h1>
 
 </body>
 

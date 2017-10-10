@@ -18,6 +18,10 @@ import org.apache.shiro.util.ByteSource;
  */
 public class SecondRealm extends AuthenticatingRealm {
 
+    /**
+     * 用于认证的方法
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 

@@ -1,13 +1,17 @@
 package com.xtito.shiro.controller;
 
+import com.xtito.shiro.service.ShiroService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by [Zy]
@@ -16,6 +20,17 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/loginCtrl")
 public class LoginController {
+
+    @Autowired()
+    private ShiroService shiroService;
+
+    @RequiresRoles({"admin"})
+    @RequestMapping("/testShiroAnnotation")
+    public String testShiroAnnotation(HttpSession session){
+        session.setAttribute("key", "value12345");
+        shiroService.testMethod();
+        return "redirect:/jsp/list.jsp";
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request) {

@@ -5,6 +5,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthenticatingRealm;
+import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 
@@ -17,8 +18,12 @@ import java.util.Set;
  * Created by [Zy]
  * 2017/10/9 16:38
  */
-public class AuthRealm extends AuthenticatingRealm {
+public class AuthRealm extends AuthorizingRealm {
 
+    /**
+     * 用于认证的方法
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
@@ -82,21 +87,27 @@ public class AuthRealm extends AuthenticatingRealm {
         System.out.println(result);
     }
 
-    //授权会被 shiro 回调的方法
-    protected AuthorizationInfo doGetAuthorizationInfo(
-            PrincipalCollection principals) {
-        //1. 从 PrincipalCollection 中来获取登录用户的信息
+    /**
+     * 用于用户授权的方法
+     *
+     * 授权会被 shiro 回调的方法
+     */
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+
+        System.out.println("------》 开始用户授权......");
+
+        // 1. 从 PrincipalCollection 中来获取登录用户的信息
         Object principal = principals.getPrimaryPrincipal();
 
-        //2. 利用登录的用户的信息来用户当前用户的角色或权限(可能需要查询数据库)
+        // 2. 利用登录的用户的信息来用户当前用户的角色或权限(可能需要查询数据库)
         Set<String> roles = new HashSet<>();
         roles.add("user");
         if("admin".equals(principal)){
             roles.add("admin");
         }
 
-        //3. 创建 SimpleAuthorizationInfo, 并设置其 reles 属性.
-        //4. 返回 SimpleAuthorizationInfo 对象.
+        // 3. 创建 SimpleAuthorizationInfo, 并设置其 reles 属性.
+        // 4. 返回 SimpleAuthorizationInfo 对象.
         return new SimpleAuthorizationInfo(roles);
     }
 }

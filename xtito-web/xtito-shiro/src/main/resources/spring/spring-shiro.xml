@@ -28,18 +28,22 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="cacheManager" ref="cacheManager"/>
         <!--<property name="realm" ref="jdbcRealm" />-->
-        <!-- 多Realm -->
+        <!-- 配置该认证器，指定认证策略 -->
         <property name="authenticator" ref="authenticator" />
 
-        <!--<property name="realms">-->
-            <!--<list>-->
-                <!--<ref bean="jdbcRealm"/>-->
-                <!--<ref bean="secondRealm"/>-->
-            <!--</list>-->
-        <!--</property>-->
+        <!-- 多Realm验证，授权的时候需要从 securityManager 读 realms -->
+        <property name="realms">
+            <list>
+                <ref bean="jdbcRealm"/>
+                <ref bean="secondRealm"/>
+            </list>
+        </property>
 
         <!-- 将cookie的作用时间配置为10s -->
-        <!--<property name="rememberMeManager.cookie.maxAge" value="10" />-->
+        <property name="rememberMeManager" ref="rememberMeManager" />
+    </bean>
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie.maxAge" value="50" />
     </bean>
 
     <!-- Let's use some enterprise caching support for better performance.  You can replace this with any enterprise
@@ -60,16 +64,11 @@
 
     <!-- 多Realm需要配置该认证器 -->
     <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
-        <property name="realms">
-            <list>
-                <ref bean="jdbcRealm"/>
-                <ref bean="secondRealm"/>
-            </list>
-        </property>
-
         <!-- 指定认证策略 -->
         <property name="authenticationStrategy">
             <bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy" />
+            <!-- 所有认证通过 -->
+            <!--<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy" />-->
         </property>
     </bean>
 
@@ -140,9 +139,9 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login.jsp"/>
         <property name="successUrl" value="/index.jsp"/>
-        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        <property name="unauthorizedUrl" value="/jsp/unauthorized.jsp"/>
 
-        <!--<property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"></property>-->
+        <property name="filterChainDefinitionMap" ref="filterChainDefinitionMap" />
 
         <!--
         	配置哪些页面需要受保护.
@@ -154,31 +153,25 @@
         	URL=拦截器[参数]
         -->
 
-        <property name="filterChainDefinitions">
-            <value>
-                /static/** = anon
-                /login.jsp = anon
-                /index.jsp = anon
-                /loginCtrl/login = anon
-                /shiro/logout = logout
+        <!--<property name="filterChainDefinitions">-->
+            <!--<value>-->
+                <!--/static/** = anon-->
+                <!--/login.jsp = anon-->
+                <!--/index.jsp = anon-->
+                <!--/loginCtrl/login = anon-->
+                <!--/loginCtrl/loginOut = logout-->
 
-                /user.jsp = roles[user]
-                /admin.jsp = roles[admin]
+                <!--/jsp/user.jsp = roles[user]-->
+                <!--/jsp/admin.jsp = roles[admin]-->
 
-                <!--# everything else requires authentication:-->
-                /** = authc
-            </value>
-        </property>
+                <!--&lt;!&ndash;# everything else requires authentication:&ndash;&gt;-->
+                <!--/** = authc-->
+            <!--</value>-->
+        <!--</property>-->
     </bean>
 
     <!-- 配置一个 bean, 该 bean 实际上是一个 Map. 通过实例工厂方法的方式 -->
-    <!--<bean id="filterChainDefinitionMap"-->
-          <!--factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"></bean>-->
-
-    <!--<bean id="filterChainDefinitionMapBuilder"-->
-          <!--class="com.atguigu.shiro.factory.FilterChainDefinitionMapBuilder"></bean>-->
-
-    <!--<bean id="shiroService"-->
-          <!--class="com.atguigu.shiro.services.ShiroService"></bean>-->
+    <bean id="filterChainDefinitionMap" factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap" />
+    <bean id="filterChainDefinitionMapBuilder" class="com.xtito.shiro.factory.FilterChainDefinitionMapBuilder" />
 
 </beans>
