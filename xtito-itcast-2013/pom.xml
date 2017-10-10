@@ -38,6 +38,10 @@
             <groupId>com.seaglasslookandfeel</groupId>
             <artifactId>seaglasslookandfeel</artifactId>
         </dependency>
+        <dependency>
+            <groupId>info.clearthought</groupId>
+            <artifactId>table-layout</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

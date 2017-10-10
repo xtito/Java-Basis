@@ -216,6 +216,13 @@
                 <version>0.2</version>
             </dependency>
 
+            <!-- 布局 -->
+            <dependency>
+                <groupId>info.clearthought</groupId>
+                <artifactId>table-layout</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+
             <!-- 格式化对象，方便输出日志 -->
             <dependency>
                 <groupId>com.alibaba</groupId>

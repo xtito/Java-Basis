@@ -104,16 +104,6 @@
     </bean>
 
 
-
-    <!--<bean id="secondRealm" class="com.atguigu.shiro.realms.SecondRealm">-->
-        <!--<property name="credentialsMatcher">-->
-            <!--<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
-                <!--<property name="hashAlgorithmName" value="SHA1"></property>-->
-                <!--<property name="hashIterations" value="1024"></property>-->
-            <!--</bean>-->
-        <!--</property>-->
-    <!--</bean>-->
-
     <!-- =========================================================
          Shiro Spring-specific integration
          ========================================================= -->
