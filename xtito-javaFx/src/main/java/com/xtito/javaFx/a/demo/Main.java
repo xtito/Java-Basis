@@ -1,4 +1,4 @@
-package com.xtito.javaFx.a;
+package com.xtito.javaFx.a.demo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
