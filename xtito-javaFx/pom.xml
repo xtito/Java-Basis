@@ -24,6 +24,34 @@
 
     <description>这是JavaFx项目</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.javafx.experiments</groupId>
+            <artifactId>3DViewer</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.javafx.experiments</groupId>-->
+            <!--<artifactId>DaeImporter</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.javafx.experiments</groupId>-->
+            <!--<artifactId>MaxLoader</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.javafx.experiments</groupId>-->
+            <!--<artifactId>MayaImporter</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.javafx.experiments</groupId>-->
+            <!--<artifactId>ObjOrPolyObjImporter</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+    </dependencies>
+
     <!-- 构建 -->
     <build>
         <plugins>
