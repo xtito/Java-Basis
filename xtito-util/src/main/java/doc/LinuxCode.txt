@@ -1,0 +1,11 @@
+记录Linux常用的一些命令
+
+./startup.sh                #启动tomcat
+./shutdown.sh               #停止tomcat
+tail -f logs/catalina.out   #看tomcat的控制台输出
+ps -ef |grep tomcat         #看是否已经有tomcat在运行了
+kill -9 1234                #-9表示强迫进程立即停止
+
+
+
+
