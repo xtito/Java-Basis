@@ -15,6 +15,7 @@ import javafx.stage.Stage;
  * 2017/11/15 9:05
  */
 public class MediaPlayer extends Application {
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         //创建测试窗口
@@ -28,21 +29,21 @@ public class MediaPlayer extends Application {
         pane.setBottom(hbox);
         Button popup = new Button("Popup");
         Button popup2 = new Button("Popup small");
-        hbox.getChildren().addAll(popup,popup2);
+        hbox.getChildren().addAll(popup, popup2);
 
 
         //测试嵌入式调用
-        SimpleMediaPlayer player = SimpleMediaPlayer.newInstance(getClass().getResource("jQueryMobile.MP4").toString());
+        SimpleMediaPlayer player = SimpleMediaPlayer.newInstance(getClass().getResource("jquery.mp4").toString());
         pane.setCenter(player);
-        pane.setAlignment(player,Pos.CENTER);
+        BorderPane.setAlignment(player, Pos.CENTER);
 
 
         //测试弹窗式调用
-        popup.setOnAction((ActionEvent e)->{
+        popup.setOnAction((ActionEvent e) -> {
             SimpleMediaPlayer.popup(getClass().getResource("TestMedia.MP4").toString());
         });
-        popup2.setOnAction((ActionEvent e)->{
-            SimpleMediaPlayer.popup(getClass().getResource("TestMedia.MP4").toString(),550,400);
+        popup2.setOnAction((ActionEvent e) -> {
+            SimpleMediaPlayer.popup(getClass().getResource("TestMedia.MP4").toString(), 550, 400);
         });
 
 
